@@ -11,3 +11,4 @@ langchain_openai
 PyPDF2
 google-generativeai
 python-dotenv
+customtkinter
