@@ -1,8 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 from datetime import datetime
-
-from test import TermoDeReferenciaFrame
+from gerarDocumento import TermoDeReferenciaFrame
 
 def get_bot_response(user_message):
     return f"Bot: Echoing your message - '{user_message}' (This is a placeholder response)"
@@ -38,7 +37,7 @@ class ChatApp:
         # Message entry
         self.message_entry = ctk.CTkEntry(
             self.input_frame,
-            placeholder_text="Type your message...",
+            placeholder_text="Escreva sua mensagem...",
             height=40,
             font=("Arial", 14)
         )
@@ -115,11 +114,17 @@ class StartScreen:
         # Welcome label
         self.welcome_label = ctk.CTkLabel(
             self.main_frame,
-            text="Welcome to the Chat App!",
+            text="Bem-vindo ao UTFPR.IA!",
             font=("Arial", 24, "bold")
         )
-        self.welcome_label.pack(pady=50)
-        
+        self.welcome_label.pack(pady=20)
+
+        self.AUX = ctk.CTkLabel(
+        self.main_frame,
+        text="Bem-vindodsadsadsadsa a UTFPR.IA!",
+        font=("Arial", 24, "bold")
+        )
+        self.AUX.pack(pady=50)
         # Start button
         self.start_button = ctk.CTkButton(
             self.main_frame,
