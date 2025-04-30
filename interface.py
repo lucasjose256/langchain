@@ -83,6 +83,7 @@ class ChatApp:
         self.chat_display.see(tk.END)
         self.chat_display.configure(state="disabled")
     
+
     def send_message(self, event=None):
         """Handle sending a message."""
         user_message = self.message_entry.get().strip()
@@ -141,11 +142,13 @@ class StartScreen:
         font=("Arial", 16),
         command=self.open_generateDocument)
         self.document_button.pack(pady=10)
+
     def open_generateDocument(self):
         self.root.destroy()
         chat_root=ctk.CTk()
         app=TermoDeReferenciaFrame(chat_root)
         chat_root.mainloop()
+        
     def open_chat(self):
         """Close start screen and open chat interface."""
         self.root.destroy()  # Close start screen
