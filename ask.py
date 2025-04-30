@@ -39,11 +39,14 @@ vectorstore = FAISS.from_documents(chunks, embeddings)
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_key)
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectorstore.as_retriever())
 
-# Interface de perguntas via terminal
-print("\n✅ Pronto para perguntas sobre os PDFs. Digite 'sair' para encerrar.\n")
-while True:
-    pergunta = input("Você: ")
-    if pergunta.lower() in ["sair", "exit", "quit"]:
-        break
-    resposta = qa_chain.run(pergunta)
-    print(f"🤖 Gemini: {resposta}\n")
+
+def fazer_pergunta():
+    # Interface de perguntas via terminal
+    print("\n✅ Pronto para perguntas sobre os PDFs. Digite 'sair' para encerrar.\n")
+    while True:
+        pergunta = input("Você: ")
+        if pergunta.lower() in ["sair", "exit", "quit"]:
+            break
+        resposta = qa_chain.run(pergunta)
+        print(f"🤖 Gemini: {resposta}\n")
+        return resposta

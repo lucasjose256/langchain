@@ -2,6 +2,7 @@ import customtkinter as ctk
 import tkinter as tk
 from datetime import datetime
 from gerarDocumento import TermoDeReferenciaFrame
+from fill_db import fazer_pergunta
 
 def get_bot_response(user_message):
     return f"Bot: Echoing your message - '{user_message}' (This is a placeholder response)"
@@ -148,7 +149,7 @@ class StartScreen:
         chat_root=ctk.CTk()
         app=TermoDeReferenciaFrame(chat_root)
         chat_root.mainloop()
-        
+
     def open_chat(self):
         """Close start screen and open chat interface."""
         self.root.destroy()  # Close start screen
