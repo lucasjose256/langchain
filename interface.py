@@ -2,6 +2,8 @@ import customtkinter as ctk
 import tkinter as tk
 from datetime import datetime
 
+from test import TermoDeReferenciaFrame
+
 def get_bot_response(user_message):
     return f"Bot: Echoing your message - '{user_message}' (This is a placeholder response)"
 
@@ -127,7 +129,18 @@ class StartScreen:
             command=self.open_chat
         )
         self.start_button.pack(pady=20)
-    
+        self.document_button = ctk.CTkButton(
+        self.main_frame,
+        text="Gerar Termo de Referência",
+        height=50,
+        font=("Arial", 16),
+        command=self.open_generateDocument)
+        self.document_button.pack(pady=10)
+    def open_generateDocument(self):
+        self.root.destroy()
+        chat_root=ctk.CTk()
+        app=TermoDeReferenciaFrame(chat_root)
+        chat_root.mainloop()
     def open_chat(self):
         """Close start screen and open chat interface."""
         self.root.destroy()  # Close start screen
